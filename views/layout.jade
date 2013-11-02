@@ -1,0 +1,39 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type="text/javascript", src='/javascripts/jq.js')
+    script(type="text/javascript", src='/javascripts/init.js')
+    style
+        @font-face {
+          font-family: 'Josefin Sans Std Light';
+          font-style: normal;
+          font-weight: 100;
+          src: url(../font/JosefinSansStd-Light.woff)
+        }
+  body
+  a(href="https://github.com/m4a1fox/cachelink")
+    img(src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png", style="position: absolute; top: 0; right: 0; border: 0;", alt="Fork me on GitHub")
+
+    .wrapper
+      #head
+        .content
+          #logo.logo
+            a(href="/")
+              img(src="/images/logo.png")
+              span.slogan CacheLink
+            span.red first alfa
+
+        - if (userIsset == 'yes')
+            include includes/head_ok
+        - else if(page == 'register')
+            include includes/register_head
+        -else
+            include includes/head
+
+      #content
+        .content
+            block content
+        div#push
+    include includes/footer

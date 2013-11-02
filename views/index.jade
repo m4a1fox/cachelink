@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= title
+    #user
+        p.lead Keep your one-time link alive.
+        div.user.enter
+            - if (userActivation == 1)
+                | Welcome. Thanks for your registration.
+        div.explain
+              - if (userIsset == 'yes')
+                  include includes/user_content
+              - else
+                  include includes/default

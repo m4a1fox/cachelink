@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    h1= title
+    #user
+        p.lead Keep your one-time link alive.
+
+    div.explain
+        div.img
+            img(src="/images/logic.png")
+
+        div.text
+            form( method="post", action="/registration", class="registration")
+                div.registration-form
+                    div.error-register
+                        span.label
+                        - if (error == 'exist')
+                            span.registration.error
+                                | User Exist
+                        - else if(error == 'empty')
+                            span.registration.error
+                                | Field cannot be empty
+                        - else if(error == 'wrong_email')
+                            span.registration.error
+                                | Wrong Email
+                    - if (registration == 'success')
+                        div.registration.success
+                            div
+                                | You successfully register. Check your email to complete registration.
+                            a(href="/")
+                                | Home
+                    - else
+                        div
+                            span.label Email :
+                            input(type="text", name="name", id="editEmployeeTitle", autocomplete="off")
+                        div
+                            span.label Password :
+                            input(type="password", name="password", id="editEmployeeName")
+                        div
+                            span.label
+                            input(type="submit", value="Register")

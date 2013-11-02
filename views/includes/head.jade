@@ -1,0 +1,15 @@
+#log-in
+    span.head-registration
+        a(href="/registration")|Registration
+        a(href="#", class="login-link js-login-link")|Log In
+div.login-form.js-login-div
+    form( method="post", action="/", class="login")
+        div
+            span
+                span.label Email :
+                input(type="text", name="name", id="editEmployeeTitle", class=(error === 'empty')? "empty" : "")
+            span
+                span.label Password :
+                input(type="password", name="password", id="editEmployeeName", class=(error === 'empty')? "empty" : "")
+            span#editEmployeeSubmit
+                input(type="submit", value="Log In")

@@ -1,0 +1,21 @@
+div.content
+    div#add.add-link
+        form( method="post", action="/add-link")
+            div
+                span
+                    input(type="text", name="link", id="addLinkToDB")
+                span
+                span#editEmployeeSubmit
+                    input(type="submit", value="Save")
+    table.links-table
+        - each link in links
+          tr
+              td
+                div.created_at= link.date
+              td
+
+              td
+                div.title
+                    a(href=link.link, target="_blank")=link.title
+              td
+                div.description= link.description
